@@ -5,7 +5,7 @@ const path = require('path');
 
 const webpackConfig = {
   entry: {
-    app: ['./app/initialize']
+    app: ['./app/index']
   },
   module: {
     loaders: [
