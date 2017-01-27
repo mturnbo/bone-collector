@@ -1,0 +1,11 @@
+{
+  "name": "bone-collector",
+  "version": "0.1.0",
+  "description": "Music collection app utilizing Webpack, MarionetteJS, and Babel/ES6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Marcus E. Turnbo",
+  "license": "ISC"
+}
