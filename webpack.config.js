@@ -37,9 +37,14 @@ const webpackConfig = {
     }])
   ],
   resolve: {
-    root: path.join(__dirname, './app')
+    root: path.join(__dirname, './app'),
+    alias: {
+      'webapps-subapps-payment': path.resolve(__dirname)
+    }
   },
   resolveLoader: {
     root: path.join(__dirname, './node_modules')
   }
 }
+
+module.export = webpackConfig;
