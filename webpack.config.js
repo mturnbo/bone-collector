@@ -3,16 +3,25 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 
+const templatePaths = [
+  path.resolve('assets/partials')
+];
+
 const webpackConfig = {
   entry: {
-    app: ['./app/index']
+    app: './app/index.js'
+  },
+  output: {
+    filename: 'app.js',
+    path: path.join(__dirname, './public'),
+    publicPath: '/public/'
   },
   module: {
     loaders: [
       {
-        test: /\.js?$/,
+        test: /\.(js|jsx|es6)?$/,
         exclude: /node_modules/,
-        loader: 'babel',
+        loader: 'babel-loader',
         query: {
           presets: ['es2015']
         }
@@ -21,13 +30,21 @@ const webpackConfig = {
         test: /\.css$/,
         exclude: /node_modules/,
         loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
+        test: /\.(jpg|png|eot|svg|ttf|woff|woff2)$/,
+        loader: 'url'
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-loader',
+        query: {
+          knownHelpersOnly: false,
+          inlineRequires: 'images/',
+          helperDirs: templatePaths
+        }
       }
     ]
-  },
-  output: {
-    filename: 'app.js',
-    path: path.join(__dirname, './public'),
-    publicPath: '/public/'
   },
   plugins: [
     new ExtractTextPlugin('app.css'),
@@ -38,13 +55,11 @@ const webpackConfig = {
   ],
   resolve: {
     root: path.join(__dirname, './app'),
-    alias: {
-      'webapps-subapps-payment': path.resolve(__dirname)
-    }
+    extensions: ['', '.js', '.hbs']
   },
   resolveLoader: {
     root: path.join(__dirname, './node_modules')
   }
 }
 
-module.export = webpackConfig;
+module.exports = webpackConfig;

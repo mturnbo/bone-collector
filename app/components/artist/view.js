@@ -1,6 +1,8 @@
 import {ItemView} from 'backbone.marionette';
-import Template from './template';
+import ArtistTemplate from 'components/artist/template';
 
-export default ItemView.extend({
-  template: Template
+let ArtistView = ItemView.extend({
+  template: ArtistTemplate
 });
+
+export default ArtistView;

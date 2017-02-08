@@ -1,11 +1,13 @@
 import Component from 'marionette.component';
-import View from './view';
-import Model from './model';
+import ArtistView from 'components/artist/view';
+import ArtistModel from 'components/artist/model';
 
-export default Component.extend({
-  viewClass: View,
+let ArtistComponent = Component.extend({
+  viewClass: ArtistView,
 
   initialize(options) {
-    this.model = new Model(options);
+    this.model = new ArtistModel(options);
   }
 });
+
+export default ArtistComponent;
