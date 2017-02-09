@@ -1,5 +1,5 @@
 import ItemView from 'backbone.marionette';
-import ReleaseTemplate from './template.hbs';
+import ReleaseTemplate from 'components/release/template';
 
 let ReleaseView = ItemView.extend({
   template: ReleaseTemplate

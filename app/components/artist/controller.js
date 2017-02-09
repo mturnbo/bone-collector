@@ -1,6 +1,6 @@
 import Component from 'marionette.component';
-import ArtistView from 'components/artist/view';
 import ArtistModel from 'components/artist/model';
+import ArtistView from 'components/artist/view';
 
 let ArtistComponent = Component.extend({
   viewClass: ArtistView,

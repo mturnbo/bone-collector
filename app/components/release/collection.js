@@ -1,5 +1,5 @@
 import {Collection} from 'backbone.marionette';
-import ReleaseModel from './model';
+import ReleaseModel from 'components/release/model';
 
 let ReleaseCollection = Collection.extend({
   model: ReleaseModel
