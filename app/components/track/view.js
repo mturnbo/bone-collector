@@ -1,7 +1,7 @@
-import ItemView from 'backbone.marionette';
+import {LayoutView} from 'backbone.marionette';
 import TrackTemplate from 'components/track/template';
 
-let TrackView = ItemView.extend({
+let TrackView = LayoutView.extend({
   template: TrackTemplate
 });
 

@@ -1,7 +1,7 @@
-import {ItemView} from 'backbone.marionette';
+import {LayoutView} from 'backbone.marionette';
 import ArtistTemplate from 'components/artist/template';
 
-let ArtistView = ItemView.extend({
+let ArtistView = LayoutView.extend({
   template: ArtistTemplate
 });
 

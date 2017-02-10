@@ -1,7 +1,7 @@
-import ItemView from 'backbone.marionette';
+import {LayoutView} from 'backbone.marionette';
 import ReleaseTemplate from 'components/release/template';
 
-let ReleaseView = ItemView.extend({
+let ReleaseView = LayoutView.extend({
   template: ReleaseTemplate
 });
 

@@ -36,13 +36,12 @@ const webpackConfig = {
         loader: 'url'
       },
       {
+        test: /\.jst$/,
+        loader: 'underscore-template-loader'
+      },
+      {
         test: /\.hbs$/,
-        loader: 'handlebars-loader',
-        query: {
-          knownHelpersOnly: false,
-          inlineRequires: 'images/',
-          helperDirs: templatePaths
-        }
+        loader: 'handlebars-loader'
       }
     ]
   },
@@ -51,11 +50,15 @@ const webpackConfig = {
     new CopyWebpackPlugin([{
       from: './app/assets/index.html',
       to: './index.html'
-    }])
+    }]),
+    new webpack.ProvidePlugin({
+      $: 'jquery',
+      _: 'underscore'
+    })
   ],
   resolve: {
     root: path.join(__dirname, './app'),
-    extensions: ['', '.js', '.hbs']
+    extensions: ['', '.js', '.jst', '.hbs']
   },
   resolveLoader: {
     root: path.join(__dirname, './node_modules')
